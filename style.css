@@ -1,101 +1,58 @@
-/* --- Page Headers (for Creations/Contact) --- */
-.page-header {
-    padding-top: 150px;
-    text-align: center;
-}
-
-/* --- Project Grid layout --- */
-.project-grid {
+/* --- Project Card Header Layout --- */
+.project-header {
     display: flex;
-    flex-direction: column;
-    gap: 50px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-/* --- Project Cards --- */
-.project-card {
-    background: linear-gradient(135deg, #121216 0%, #16161c 100%);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    border-radius: 16px;
-    padding: 40px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+/* --- App Logos / Icons Container --- */
+.project-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
 }
 
-/* 3D-like hover float */
-.project-card:hover {
-    transform: translateY(-5px) scale(1.01);
-    border-color: rgba(123, 44, 191, 0.4);
-    box-shadow: 0 10px 30px rgba(123, 44, 191, 0.1);
+/* --- Unique Neon App Brand Colors --- */
+.icon-nova {
+    color: #00f2fe;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+    border-color: rgba(0, 242, 254, 0.2);
 }
 
-.project-info h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
+.icon-pet {
+    color: #ff007f;
+    text-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+    border-color: rgba(255, 0, 127, 0.2);
 }
 
-.project-info p {
-    color: #a0a0a0;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    max-width: 80%;
-}
-
-/* --- Project Status Tags --- */
-.project-tag {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    letter-spacing: 0.5px;
-}
-
-.tag-active {
-    background-color: rgba(46, 204, 113, 0.15);
+.icon-blob {
     color: #2ecc71;
-    border: 1px solid rgba(46, 204, 113, 0.3);
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+    border-color: rgba(46, 204, 113, 0.2);
 }
 
-.tag-progress {
-    background-color: rgba(243, 156, 18, 0.15);
-    color: #f39c12;
-    border: 1px solid rgba(243, 156, 18, 0.3);
+.icon-tag {
+    color: #9b59b6;
+    text-shadow: 0 0 10px rgba(155, 89, 182, 0.4);
+    border-color: rgba(155, 89, 182, 0.2);
 }
 
-/* --- Links --- */
-.project-link {
-    display: inline-block;
-    color: #7B2CBF;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease, transform 0.2s ease;
+.icon-zombie {
+    color: #e74c3c;
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.4);
+    border-color: rgba(231, 76, 60, 0.2);
 }
 
-.project-link:hover {
-    color: #9d4edd;
-    transform: translateX(5px);
-}
-
-.project-link.disabled {
-    color: #555;
-    cursor: default;
-}
-
-.coming-soon {
-    opacity: 0.7;
-}
-
-.coming-soon:hover {
-    opacity: 0.95;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .project-info p {
-        max-width: 100%;
-    }
+/* Slightly glow up the icon when card is hovered */
+.project-card:hover .project-icon {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.08);
 }
