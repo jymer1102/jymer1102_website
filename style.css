@@ -732,4 +732,18 @@ footer {
     .project-card {
         padding: 46px;
     }
+
+    /* Force real one-at-a-time reveals on desktop: stack the split cards
+       instead of side-by-side, and give project cards enough breathing
+       room that each one has to be scrolled to individually. */
+    .split-section {
+        flex-direction: column;
+        max-width: 640px;
+        margin: 0 auto;
+        gap: 140px;
+    }
+
+    .project-grid {
+        gap: 260px;
+    }
 }
