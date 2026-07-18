@@ -702,3 +702,34 @@ footer {
         width: auto;
     }
 }
+
+/* Extra breathing room on desktop: pushes the "Hi, I'm jymer1102" intro
+   section below the fold so its fade-up animation actually plays on
+   scroll, and gives the whole layout a more spread-out, premium feel. */
+@media (min-width: 993px) {
+    .container {
+        padding-top: 170px;
+        padding-bottom: 100px;
+    }
+
+    .hero {
+        padding-top: 60px;
+        padding-bottom: 160px;
+    }
+
+    section {
+        margin-bottom: 200px;
+    }
+
+    .intro-section {
+        margin-bottom: 200px;
+    }
+
+    .split-card {
+        padding: 52px 46px;
+    }
+
+    .project-card {
+        padding: 46px;
+    }
+}
