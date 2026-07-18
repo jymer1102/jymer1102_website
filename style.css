@@ -408,6 +408,9 @@ section:last-child {
     padding: 34px;
     position: relative;
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
     transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
@@ -525,6 +528,7 @@ section:last-child {
 
 .coming-soon {
     opacity: 0.85;
+    cursor: default;
 }
 
 /* --------------------------------------------------------------------------
