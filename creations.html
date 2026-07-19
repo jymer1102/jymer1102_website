@@ -21,15 +21,16 @@
         </div>
     </nav>
 
- <header class="page-header" data-aos="fade-up" data-aos-duration="900" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-bottom: 200px;">
-        <p class="eyebrow" style="order: 1;">portfolio / creations</p>
-        <h1 class="glow-text" style="order: 2;">My Creations</h1>
-        <p class="subtitle" style="order: 3;">A collection of things I've built and designed.</p>
-        <p style="margin-top: 40px; opacity: 0.5; font-size: 0.9rem; animation: pulse 2s infinite; order: 4;">Scroll down to explore ↓</p>
-    </header>
+<header class="page-header" data-aos="fade-up" data-aos-duration="900" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; position: relative;">
+    <p class="eyebrow" style="order: 1;">portfolio / creations</p>
+    <h1 class="glow-text" style="order: 2;">My Creations</h1>
+    <p class="subtitle" style="order: 3;">A collection of things I've built and designed.</p>
+    
+    <p id="scroll-indicator" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); margin: 0; opacity: 0.6; font-size: 0.9rem; animation: pulse 2s infinite; z-index: 999; transition: opacity 0.4s ease; pointer-events: none;">Scroll down to explore ↓</p>
+</header>
 
-    <main class="container">
-       <div class="project-grid">
+<main class="container" id="creations-container" style="opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease;">
+    <div class="project-grid">
 
             <a href="https://nova-ai-mk9x.onrender.com/" target="_blank" rel="noopener" class="project-card" data-aos="fade-up" data-aos-duration="700">
                 <div class="project-header">
@@ -136,5 +137,31 @@
             easing: 'ease-out-cubic'
         });
     </script>
+    <script>
+    window.addEventListener('scroll', function() {
+        const scrollIndicator = document.getElementById('scroll-indicator');
+        const creationsSection = document.getElementById('creations-section');
+        
+      <script>
+    window.addEventListener('scroll', function() {
+        const indicator = document.getElementById('scroll-indicator');
+        const container = document.getElementById('creations-container');
+        
+        // If the user scrolls down more than 10 pixels
+        if (window.scrollY > 10) {
+            // Hide the indicator smoothly
+            indicator.style.opacity = '0';
+            
+            // Reveal the creations grid smoothly
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+        } else {
+            // Optional: Hide creations and show indicator again if they scroll all the way back up
+            indicator.style.opacity = '0.6';
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+        }
+    });
+</script>
 </body>
 </html>
