@@ -393,16 +393,27 @@ section:last-child {
 .page-header {
     padding: 160px 24px 20px;
     text-align: center;
+    /* Add these three lines to enable ordering controls */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* Force the ordering sequence */
+.page-header .eyebrow {
+    order: 1;
 }
 
 .page-header .glow-text {
     font-size: clamp(2rem, 4.5vw, 3rem);
     margin-bottom: 14px;
+    order: 2; /* Title sits second */
 }
 
 .page-header .subtitle {
     color: var(--text-2);
     font-size: 1.05rem;
+    order: 3; /* Subtitle sits third */
 }
 
 /* --------------------------------------------------------------------------
