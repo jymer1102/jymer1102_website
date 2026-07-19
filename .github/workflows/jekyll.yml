@@ -33,7 +33,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps:https://jymer1102.github.io/jymer1102_website.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
