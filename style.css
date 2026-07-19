@@ -799,6 +799,14 @@ footer {
     animation: indicatorPulse 2s infinite var(--ease);
 }
 
+/* A running animation on opacity out-ranks a plain inline style, so hiding
+   the indicator via JS needs !important + a paused animation to actually
+   take effect. */
+#scroll-indicator.is-hidden {
+    opacity: 0 !important;
+    animation-play-state: paused;
+}
+
 @keyframes indicatorPulse {
     0%, 100% {
         opacity: 0.3;
