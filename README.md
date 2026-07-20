@@ -47,7 +47,7 @@ I'm a creator and designer building my digital corner of the internet. Welcome t
 
 ### 🛠️ My Skills & Interests
 * 🌐 **Web Design:** Exploring free web hosting and site builders. I love to design and tweak websites, coding is not what I do, though.
-* 💻 **Current Projects:** Tuning up my personal portfolio site (`jymer1102.me`).
+* 💻 **Current Projects:** Designing my zombie shooter game (`Zombified`).
 * 🚀 **Learning:** Getting the hang of GitHub and basic web tools.
 
 ---
@@ -87,7 +87,7 @@ I'm a creator and designer building my digital corner of the internet. Welcome t
 
 👾 **Tag Mania** — [![Launch](https://img.shields.io/badge/Launch-9B59B6?style=flat-square)](https://jymer1102.github.io/Tag_Mania/)
 
-🧟 **Zombie Shooter** — [![In Progress](https://img.shields.io/badge/Status-In_Progress-orange?style=flat-square)](#)
+🧟 **Zombified** — [![In Progress](https://img.shields.io/badge/Status-In_Progress-orange?style=flat-square)](#)
 
 ---
 
