@@ -256,6 +256,15 @@ nav {
     overflow: hidden;
 }
 
+transition: opacity 1.0s var(--ease);
+    opacity: 1;
+}
+
+.home-banner.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Prevents users from accidentally clicking invisible layout blocks */
+}
+
 .home-banner img {
     width: 100%;
     height: 100%;
