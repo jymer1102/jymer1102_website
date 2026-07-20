@@ -809,10 +809,10 @@ footer {
 
 /* Custom default cursor */
 html, body {
-  cursor: url('../../images/cursor/custom-j-cursor.png'), default;
+  cursor: url('/images/cursor/custom-j-cursor.png') 0 0, default;
 }
 
 /* Custom pointer cursor */
 a, button, .nav-cta, .btn-primary, select, input[type="submit"] {
-  cursor: url('../../images/cursor/custom-j-cursor-pointer.png'), pointer;
+  cursor: url('/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
 }
