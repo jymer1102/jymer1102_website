@@ -10,10 +10,10 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css">
     <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
-    <link rel="icon" type="image/png" href="{{ '/images/favicon/jymer1102_j.png' | relative_url }}">
+    
+    <link id="animated-favicon" rel="icon" type="image/png" href="{{ '/images/favicon/jymer1102_j.png?v=2' | relative_url }}">
     <link rel="apple-touch-icon" href="{{ '/images/favicon/apple-touch-icon.png' | relative_url }}">
-    <!-- Social preview (Open Graph / Twitter Card) -->
-<!-- NOTE: swap "https://jymer1102.github.io/jymer1102_website" below for your real domain once you buy one -->
+    
     <meta property="og:title" content="jymer1102 Site">
     <meta property="og:description" content="Hi, I'm jymer1102">
     <meta property="og:image" content="https://jymer1102.github.io/jymer1102_website/images/social-card.png">
@@ -29,8 +29,6 @@
 <body>
 
     <script>
-        // Defined up-front so it's always ready before any image below
-        // could possibly fire its onerror handler.
         function jyFallback(img, initials) {
             img.style.display = 'none';
             var icon = img.closest('.project-icon');
@@ -50,16 +48,15 @@
         </div>
     </nav>
 
-<header class="page-header" data-aos="fade-up" data-aos-duration="900" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; position: relative;">
-    <p class="eyebrow" style="order: 1;">portfolio / creations</p>
-    <h1 class="glow-text" style="order: 2;">My Creations<span class="cursor">_</span></h1>
-    <p class="subtitle" style="order: 3;">A collection of things I've built and designed.</p>
-    
-    <p id="scroll-indicator">Scroll down to explore ↓</p>
-</header>
+    <header class="page-header" data-aos="fade-up" data-aos-duration="900" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; position: relative;">
+        <p class="eyebrow" style="order: 1;">portfolio / creations</p>
+        <h1 class="glow-text" style="order: 2;">My Creations<span class="cursor">_</span></h1>
+        <p class="subtitle" style="order: 3;">A collection of things I've built and designed.</p>
+        <p id="scroll-indicator">Scroll down to explore ↓</p>
+    </header>
 
-<main class="container" id="creations-container" style="opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease;">
-    <div class="project-grid">
+    <main class="container" id="creations-container" style="opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease;">
+        <div class="project-grid">
 
             <a href="https://nova-ai-mk9x.onrender.com/" target="_blank" rel="noopener" class="project-card" data-aos="fade-up" data-aos-duration="700">
                 <div class="project-header">
@@ -133,8 +130,6 @@
     <footer>jymer1102 — built with care.</footer>
 
     <script>
-        // Make the hover glow follow the cursor (or finger, on touch) as it
-        // moves across each card instead of staying fixed at the center.
         document.querySelectorAll('.project-card').forEach(function (card) {
             card.addEventListener('pointermove', function (e) {
                 var rect = card.getBoundingClientRect();
@@ -156,9 +151,6 @@
     </script>
     
     <script>
-        // Reveal the project grid the first time the person scrolls, and
-        // keep it visible after that — otherwise scrolling back up near
-        // the top would make every card disappear again.
         let creationsRevealed = false;
 
         function updateScrollState() {
@@ -181,6 +173,7 @@
         window.addEventListener('scroll', updateScrollState);
         updateScrollState();
     </script>
+    
     <script src="{{ '/favicon-animation.js' | relative_url }}"></script>
 </body>
 </html>
