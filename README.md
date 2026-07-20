@@ -2,10 +2,6 @@
 
 ![README Banner](images/jymer1102_banner.gif)
 
-# 👋 Hi, I'm jymer1102!
-
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=F7F7F7&width=435&lines=Hi%2C+I'm+jymer1102!;Building+jymer1102.me;Learning+web+design!)](https://git.io/typing-svg)
-
 ---
 
 ### 🐍 My Contributions Graph
