@@ -1,22 +1,22 @@
 (function animateFavicon() {
     const FRAME_COUNT = 94;
-    const FRAME_INTERVAL_MS = 40; // ~25 frames per second
+    const FRAME_INTERVAL_MS = 40; // ~25 fps
 
-    // 1. Grab the initial working favicon tag from the page
-    const initialFavicon = document.getElementById('favicon');
+    // 1. Grab the current working favicon link tag that Jekyll successfully built
+    const initialFavicon = document.getElementById('animated-favicon');
     if (!initialFavicon) return;
 
-    // 2. Extract the directory path automatically from the working URL
+    // 2. Extract the base folder path (cleans out the filename, preserves domain/subfolders)
     const currentHref = initialFavicon.href;
     const baseDir = currentHref.substring(0, currentHref.lastIndexOf('/') + 1);
 
-    // 3. Build the frame URLs array
+    // 3. Build the absolute paths array for all 94 frames
     const frameUrls = [];
     for (let i = 1; i <= FRAME_COUNT; i++) {
         frameUrls.push(`${baseDir}j_${i}.gif`);
     }
 
-    // 4. Preload all frames in memory for smooth playback
+    // 4. Preload all the frames into browser memory so the swap doesn't flicker
     frameUrls.forEach(src => { 
         const img = new Image(); 
         img.src = src; 
@@ -24,9 +24,9 @@
 
     let frameIndex = 0;
 
-    // 5. Swap the link href attribute on a timer
+    // 5. Loop engine
     setInterval(() => {
-        const link = document.getElementById('favicon');
+        const link = document.getElementById('animated-favicon');
         if (link) {
             link.href = frameUrls[frameIndex];
         }
