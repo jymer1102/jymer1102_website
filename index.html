@@ -8,12 +8,10 @@
     <title>jymer1102 | Home</title>
     <meta name="description" content="jymer1102 — creator and designer building high-performance, visually striking web experiences.">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css">
     <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
     <link rel="apple-touch-icon" href="{{ '/images/favicon/apple-touch-icon.png' | relative_url }}">
-<!-- Social preview (Open Graph / Twitter Card) -->
-<!-- NOTE: swap "https://jymer1102.github.io/jymer1102_website" below for your real domain once you buy one -->
-    <meta property="og:title" content="jymer1102 Site">
+<meta property="og:title" content="jymer1102 Site">
     <meta property="og:description" content="Hi, I'm jymer1102">
     <meta property="og:image" content="https://jymer1102.github.io/jymer1102_website/images/social-card.png">
     <meta property="og:type" content="website">
@@ -37,15 +35,15 @@
         </div>
     </nav>
 
-   <div class="home-banner" id="banner-container">
-    <img src="{{ '/images/jymer1102_banner.gif' | relative_url }}" alt="jymer1102 banner" id="loading-gif">
-</div>
+    <div class="home-banner" id="banner-container">
+        <img src="{{ '/images/jymer1102_banner.gif' | relative_url }}" alt="jymer1102 banner" id="loading-gif">
+    </div>
     
     <header class="hero" data-aos="fade-up" data-aos-duration="900">
         <p class="eyebrow">portfolio / home</p>
         <h1 class="glow-text">Design is how it works<span class="cursor">_</span></h1>
         <p class="subtitle">Welcome to my personal portfolio.</p>
-   <p id="scroll-indicator" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); margin: 0; opacity: 0.6; font-size: 0.9rem; animation: pulse 2s infinite; z-index: 999; transition: opacity 0.4s ease; pointer-events: none;">Scroll down to explore ↓</p>
+        <p id="scroll-indicator" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); margin: 0; opacity: 0.6; font-size: 0.9rem; animation: pulse 2s infinite; z-index: 999; transition: opacity 0.4s ease; pointer-events: none;">Scroll down to explore ↓</p>
     </header>
 
     <main class="container">
@@ -104,19 +102,38 @@
             });
         });
     </script>
-<script>
-    window.addEventListener('scroll', function() {
-        const indicator = document.getElementById('scroll-indicator');
-        
-        // Safety check to make sure the element exists on this page
-        if (indicator) {
-            if (window.scrollY > 10) {
-                indicator.style.opacity = '0';
-            } else {
-                indicator.style.opacity = '0.6';
+    <script>
+        window.addEventListener('scroll', function() {
+            const indicator = document.getElementById('scroll-indicator');
+            
+            // Safety check to make sure the element exists on this page
+            if (indicator) {
+                if (window.scrollY > 10) {
+                    indicator.style.opacity = '0';
+                } else {
+                    indicator.style.opacity = '0.6';
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const banner = document.getElementById('banner-container');
+            if (banner) {
+                // The animation loop takes exactly 3 seconds
+                const gifDuration = 3000; 
+
+                setTimeout(() => {
+                    banner.classList.add('fade-out');
+                    
+                    // Completely drop from viewport layout after the 1-second CSS transition ends
+                    setTimeout(() => {
+                        banner.style.display = 'none';
+                    }, 1000); 
+                }, gifDuration);
+            }
+        });
+    </script>
 </body>
 </html>
