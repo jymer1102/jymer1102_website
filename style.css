@@ -612,6 +612,100 @@ section:last-child {
    10. Connect Page & Contact Form
    -------------------------------------------------------------------------- */
 
+/* Links Container */
+.connect-panel {
+    max-width: 620px;
+    margin: 0 auto 40px auto;
+    background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+/* Mouse Radial Glow Overlay for Connect Panel & Form */
+.connect-panel::before,
+.form-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), var(--accent-dim), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.connect-panel:hover::before,
+.form-container:hover::before {
+    opacity: 1;
+}
+
+.connect-panel:hover,
+.form-container:hover,
+.form-container:focus-within {
+    border-color: var(--border-hover);
+}
+
+.connect-panel:hover,
+.form-container:focus-within {
+    box-shadow: 0 16px 40px rgba(30, 86, 224, 0.12);
+}
+
+/* Keeps Content Layered Above Radial Glow */
+.connect-list,
+.form-container form {
+    position: relative;
+    z-index: 2;
+}
+
+/* Connect List Layout */
+.connect-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.connect-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.connect-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.connect-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-3);
+    width: 110px;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+}
+
+.connect-value {
+    color: var(--text-1);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.25s var(--ease);
+}
+
+.connect-value:hover {
+    color: var(--accent-bright);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
 /* Outer Form Container */
 .form-container {
     max-width: 620px;
@@ -626,37 +720,6 @@ section:last-child {
     transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
-/* Cursor Glow Background Layer (Sits behind inputs & button) */
-.form-container::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), var(--accent-dim), transparent 45%);
-    opacity: 0;
-    transition: opacity 0.4s var(--ease);
-    pointer-events: none;
-    z-index: 1; /* Positioned beneath inputs */
-}
-
-.form-container:hover::before {
-    opacity: 1;
-}
-
-.form-container:hover,
-.form-container:focus-within {
-    border-color: var(--border-hover);
-}
-
-.form-container:focus-within {
-    box-shadow: 0 16px 40px rgba(30, 86, 224, 0.12);
-}
-
-/* Ensure the form contents stay cleanly on layer above glow */
-.form-container form {
-    position: relative;
-    z-index: 2;
-}
-
 /* Base Gray Inputs & Textarea */
 .form-control,
 .glow-input-display {
@@ -667,7 +730,7 @@ section:last-child {
     font-family: var(--font-body);
     font-size: 0.95rem;
     color: var(--text-1);
-    background-color: var(--bg-raised); /* Solid dark gray background */
+    background-color: var(--bg-raised);
     box-sizing: border-box;
     transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
@@ -690,7 +753,7 @@ section:last-child {
     align-items: center;
     width: 100%;
     padding: 14px 24px;
-    background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to)); /* Dark gray card gradient */
+    background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
     color: var(--text-1);
     font-family: var(--font-body);
     font-size: 0.95rem;
@@ -714,7 +777,6 @@ section:last-child {
 .submit-btn:active {
     transform: translateY(-1px);
 }
-
 /* --------------------------------------------------------------------------
    11. Footer
    -------------------------------------------------------------------------- */
