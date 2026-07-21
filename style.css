@@ -9,7 +9,7 @@
      6.  Intro + Split Section (Home)
      7.  Page Header (Creations / Connect)
      8.  Project Cards & Gallery
-     9.  Project Icons & Logo Images
+     9.  Project Tags, Links & Icons
      10. Connect Page & Contact Form
      11. Footer
      12. Responsive
@@ -374,7 +374,7 @@ nav {
    6. Intro + Split Section (Home)
    -------------------------------------------------------------------------- */
 section {
-    margin-bottom: 140px;
+    margin-bottom: 120px;
     width: 100%;
 }
 
@@ -385,7 +385,7 @@ section:last-child {
 .intro-section {
     text-align: center;
     max-width: 760px;
-    margin: 0 auto 140px auto;
+    margin: 0 auto 120px auto;
     width: 100%;
 }
 
@@ -437,8 +437,8 @@ section:last-child {
    7. Page Header (Creations / Connect)
    -------------------------------------------------------------------------- */
 .page-header {
-    min-height: 100vh;
-    padding: 120px 24px 60px;
+    min-height: 85vh; 
+    padding: 120px 24px 40px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -518,7 +518,7 @@ section:last-child {
 }
 
 /* --------------------------------------------------------------------------
-   9. Project Tags & Links
+   9. Project Tags, Links & Icons
    -------------------------------------------------------------------------- */
 .project-tag {
     display: inline-flex;
@@ -584,9 +584,6 @@ section:last-child {
     cursor: default;
 }
 
-/* --------------------------------------------------------------------------
-   9b. Project Icons & Logo Images
-   -------------------------------------------------------------------------- */
 .project-icon {
     width: 72px;
     height: 72px;
@@ -636,15 +633,16 @@ section:last-child {
    10. Connect Page & Contact Form
    -------------------------------------------------------------------------- */
 
-/* Step 1: Links Section */
+/* Links Section */
 .connect-section {
     width: 100%;
-    min-height: 80vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 180px;
+    margin-top: 20px;
+    margin-bottom: 100px;
 }
 
 /* Links Container */
@@ -712,15 +710,15 @@ section:last-child {
     text-shadow: 0 0 10px var(--accent-glow);
 }
 
-/* Step 2: Contact Form Section */
+/* Contact Form Section */
 .contact-section {
     width: 100%;
-    min-height: 80vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
 }
 
 /* Outer Form Container */
@@ -945,11 +943,11 @@ footer {
     }
 
     section {
-        margin-bottom: 200px;
+        margin-bottom: 160px;
     }
 
     .intro-section {
-        margin-bottom: 200px;
+        margin-bottom: 160px;
     }
 
     .split-card {
@@ -967,7 +965,7 @@ footer {
     }
 
     .project-grid {
-        gap: 260px;
+        gap: 180px;
     }
 }
 
