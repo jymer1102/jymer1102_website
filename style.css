@@ -1065,19 +1065,28 @@ a, button, .nav-cta, .btn-primary, select, input[type="submit"], .submit-btn {
     box-shadow: 0 0 16px var(--accent-glow);
 }
 
-/* The custom glowing caret */
+/* The custom glowing caret matched to your exact site blue */
 .custom-caret {
     display: inline-block;
     width: 2px;
     height: 1.2em;
-    background-color: #00d2ff;
-    /* Soft blue radiant glow effect */
-    box-shadow: 0 0 8px #00d2ff, 0 0 16px #00d2ff, 0 0 24px rgba(0, 210, 255, 0.8);
+    background-color: var(--accent-bright);
+    
+    /* Radiant glow matching var(--accent-glow) and deep electric blue */
+    box-shadow: 
+        0 0 6px var(--accent-bright),
+        0 0 12px var(--accent-bright),
+        0 0 20px var(--accent-glow);
+    
     margin-left: 1px;
     animation: caretBlink 1s infinite;
 }
 
 @keyframes caretBlink {
-    0%, 45% { opacity: 1; }
-    50%, 100% { opacity: 0; }
+    0%, 45% { 
+        opacity: 1; 
+    }
+    50%, 100% { 
+        opacity: 0; 
+    }
 }
