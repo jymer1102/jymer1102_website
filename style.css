@@ -62,10 +62,19 @@
 /* --------------------------------------------------------------------------
    2. Global Reset & Base
    -------------------------------------------------------------------------- */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Prevents any side-scrolling / left shift on mobile */
+    position: relative;
 }
 
 html {
@@ -81,7 +90,6 @@ body {
     color: var(--text-1);
     font-family: var(--font-body);
     line-height: 1.5;
-    overflow-x: hidden;
 }
 
 a {
@@ -90,6 +98,7 @@ a {
 
 img {
     max-width: 100%;
+    height: auto;
     display: block;
 }
 
@@ -111,6 +120,7 @@ button:focus-visible {
 
 .container {
     max-width: var(--container-w);
+    width: 100%;
     margin: 0 auto;
     padding: 100px 24px 60px;
 }
@@ -143,6 +153,7 @@ button:focus-visible {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    word-break: break-word; /* Prevents overflow on tiny viewports */
 }
 
 .cursor {
@@ -222,8 +233,10 @@ nav {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     position: fixed;
-    width: 100%;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 1000;
     border-bottom: 1px solid var(--border);
 }
@@ -256,7 +269,7 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Aligns menu items to the far right */
+    margin-left: auto;
 }
 
 .nav-links a {
@@ -342,6 +355,7 @@ nav {
     text-align: center;
     padding: 70px 20px 90px;
     position: relative;
+    width: 100%;
 }
 
 .hero .glow-text {
@@ -361,6 +375,7 @@ nav {
    -------------------------------------------------------------------------- */
 section {
     margin-bottom: 140px;
+    width: 100%;
 }
 
 section:last-child {
@@ -371,6 +386,7 @@ section:last-child {
     text-align: center;
     max-width: 760px;
     margin: 0 auto 140px auto;
+    width: 100%;
 }
 
 .intro-section h2 {
@@ -391,14 +407,16 @@ section:last-child {
     display: flex;
     flex-wrap: wrap;
     gap: 28px;
+    width: 100%;
 }
 
 .split-card {
     flex: 1 1 calc(50% - 28px);
-    min-width: 300px;
+    min-width: 280px;
     background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
     border-radius: var(--radius-lg);
     padding: 38px;
+    max-width: 100%;
 }
 
 .split-card h3 {
@@ -424,6 +442,7 @@ section:last-child {
     display: flex;
     flex-direction: column;
     align-items: center; 
+    width: 100%;
 }
 
 .page-header .eyebrow {
@@ -449,6 +468,7 @@ section:last-child {
     display: flex;
     flex-direction: column;
     gap: 28px;
+    width: 100%;
 }
 
 .project-card {
@@ -461,6 +481,7 @@ section:last-child {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+    width: 100%;
 }
 
 .project-header {
@@ -615,6 +636,7 @@ section:last-child {
 /* Links Container */
 .connect-panel {
     max-width: 620px;
+    width: 100%;
     margin: 0 auto 40px auto;
     background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
     border-radius: var(--radius-lg);
@@ -679,6 +701,7 @@ section:last-child {
 /* Outer Form Container */
 .form-container {
     max-width: 620px;
+    width: 100%;
     margin: 0 auto;
     background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
     border-radius: var(--radius-lg);
@@ -797,6 +820,7 @@ footer {
     font-family: var(--font-mono);
     font-size: 0.8rem;
     border-top: 1px solid var(--border);
+    width: 100%;
 }
 
 /* --------------------------------------------------------------------------
