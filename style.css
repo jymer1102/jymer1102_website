@@ -698,6 +698,11 @@ section:last-child {
     text-shadow: 0 0 10px var(--accent-glow);
 }
 
+/* Contact Form Section (Pushed off screen until scroll) */
+.contact-section {
+    margin-top: 100vh;
+}
+
 /* Outer Form Container */
 .form-container {
     max-width: 620px;
@@ -709,7 +714,7 @@ section:last-child {
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Inputs, Selects & Textarea */
+/* Inputs, Selects & Textarea Base Styles */
 .form-control,
 .glow-input-display {
     width: 100%;
@@ -730,6 +735,7 @@ textarea.form-control {
     min-height: 120px;
     max-height: 400px;
 }
+
 /* Custom Light-Grey Dropdown Arrow for Select */
 select.form-control {
     appearance: none;
@@ -834,7 +840,6 @@ select.form-control option {
     0%, 45% { opacity: 1; }
     50%, 100% { opacity: 0; }
 }
-
 /* --------------------------------------------------------------------------
    11. Footer
    -------------------------------------------------------------------------- */
