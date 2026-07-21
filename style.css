@@ -618,56 +618,32 @@ section:last-child {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 48px;
-}
-
-.connect-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-}
-
-.connect-list li {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid var(--border);
-}
-
-.connect-list li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.connect-label {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--text-3);
-    width: 90px;
-    flex-shrink: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.connect-value {
-    color: var(--text-1);
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.25s var(--ease);
-}
-
-.connect-value:hover {
-    color: var(--accent-bright);
-    text-shadow: 0 0 10px var(--accent-glow);
-}
-
-/* Contact Form Styles */
-.contact-section {
-    padding: 20px 0 60px;
     position: relative;
+    overflow: hidden;
+    transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
+/* Cursor Glow Overlay for Connect Panel */
+.connect-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), var(--accent-dim), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+    pointer-events: none;
+}
+
+.connect-panel:hover::before {
+    opacity: 1;
+}
+
+.connect-panel:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 16px 40px rgba(30, 86, 224, 0.12);
+}
+
+/* Form Container */
 .form-container {
     max-width: 620px;
     margin: 0 auto;
@@ -676,7 +652,30 @@ section:last-child {
     border-radius: var(--radius-lg);
     padding: 44px;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-    transition: border-color 0.35s var(--ease);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+/* Cursor Glow Overlay for Form Container */
+.form-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), var(--accent-dim), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+    pointer-events: none;
+}
+
+.form-container:hover::before {
+    opacity: 1;
+}
+
+/* Border activates on hover or active input focus, reverts immediately on blur */
+.form-container:focus-within {
+    border-color: var(--border-hover);
+    box-shadow: 0 16px 40px rgba(30, 86, 224, 0.12);
 }
 
 .form-container:hover {
