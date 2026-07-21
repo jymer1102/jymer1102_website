@@ -153,33 +153,35 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            once: true,
+            once: false,
+            mirror: true,
             duration: 800,
             easing: 'ease-out-cubic'
         });
     </script>
     
     <script>
-        let creationsRevealed = false;
-
         function updateScrollState() {
             const indicator = document.getElementById('scroll-indicator');
             const container = document.getElementById('creations-container');
 
             if (window.scrollY > 10) {
                 if (indicator) indicator.classList.add('is-hidden');
-                creationsRevealed = true;
-            } else if (indicator) {
-                indicator.classList.remove('is-hidden');
-            }
-
-            if (container) {
-                container.style.opacity = creationsRevealed ? '1' : '0';
-                container.style.transform = creationsRevealed ? 'translateY(0)' : 'translateY(20px)';
+                if (container) {
+                    container.style.opacity = '1';
+                    container.style.transform = 'translateY(0)';
+                }
+            } else {
+                if (indicator) indicator.classList.remove('is-hidden');
+                if (container) {
+                    container.style.opacity = '0';
+                    container.style.transform = 'translateY(20px)';
+                }
+                AOS.refresh();
             }
         }
 
-        window.addEventListener('scroll', updateScrollState);
+        window.addEventListener('scroll', updateScrollState, { passive: true });
         updateScrollState();
     </script>
     
