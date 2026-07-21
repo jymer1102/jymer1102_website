@@ -1,15 +1,15 @@
 /* ==========================================================================
    jymer1102 — Portfolio Stylesheet
    Table of Contents:
-     1.  Fonts & Design Tokens
-     2.  Global Reset & Base
-     3.  Utility / Shared Patterns (eyebrows, glow text, interactive glow utility)
-     4.  Navigation
-     5.  Hero (Home)
-     6.  Intro + Split Section (Home)
-     7.  Page Header (Creations / Connect)
-     8.  Project Cards & Gallery
-     9.  Project Tags, Links & Icons
+     1. Fonts & Design Tokens
+     2. Global Reset & Base
+     3. Utility / Shared Patterns (eyebrows, glow text, interactive glow utility)
+     4. Navigation
+     5. Hero & Banner (Home)
+     6. Intro + Split Section (Home)
+     7. Page Header (Creations / Connect)
+     8. Project Cards & Gallery
+     9. Project Tags, Links & Icons
      10. Connect Page & Contact Form
      11. Footer
      12. Responsive
@@ -79,6 +79,7 @@ html, body {
 
 html {
     scroll-behavior: smooth;
+    cursor: url('/portfolio/images/cursor/custom-j-cursor.png') 0 0, default;
 }
 
 body {
@@ -94,6 +95,11 @@ body {
 
 a {
     color: inherit;
+    cursor: url('/portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
+}
+
+button, .nav-cta, .btn-primary, select, input[type="submit"], .submit-btn {
+    cursor: url('/portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
 }
 
 img {
@@ -128,7 +134,6 @@ button:focus-visible {
 /* --------------------------------------------------------------------------
    3. Utility / Shared Patterns
    -------------------------------------------------------------------------- */
-
 .eyebrow {
     display: inline-flex;
     align-items: center;
@@ -179,13 +184,13 @@ button:focus-visible {
     transition: color 0.25s var(--ease), transform 0.25s var(--ease), text-shadow 0.25s var(--ease);
 }
 
-/* --- Global Interactive Card Glow & Active Border Lighting --- */
+/* Global Interactive Card Glow & Active Border Lighting */
 .js-interactive-container {
     position: relative;
     overflow: hidden;
     z-index: 1;
     border: 1px solid var(--border);
-    transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
 .js-interactive-container::before {
@@ -214,6 +219,7 @@ button:focus-visible {
 .js-interactive-container:focus-within {
     border-color: var(--border-hover) !important;
     box-shadow: 0 0 25px rgba(30, 86, 224, 0.35);
+    transform: translateY(-4px);
 }
 
 .js-interactive-container > * {
@@ -248,7 +254,6 @@ nav {
     color: var(--text-1);
     letter-spacing: -0.02em;
     text-decoration: none;
-    cursor: pointer;
     transition: color 0.25s var(--ease);
 }
 
@@ -385,7 +390,7 @@ section:last-child {
 .intro-section {
     text-align: center;
     max-width: 760px;
-    margin: 0 auto 120px auto;
+    margin: 0 auto 80px auto;
     width: 100%;
 }
 
@@ -404,19 +409,17 @@ section:last-child {
 }
 
 .split-section {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 28px;
     width: 100%;
 }
 
 .split-card {
-    flex: 1 1 calc(50% - 28px);
-    min-width: 280px;
     background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
     border-radius: var(--radius-lg);
     padding: 38px;
-    max-width: 100%;
+    width: 100%;
 }
 
 .split-card h3 {
@@ -437,7 +440,7 @@ section:last-child {
    7. Page Header (Creations / Connect)
    -------------------------------------------------------------------------- */
 .page-header {
-    min-height: 85vh; 
+    min-height: 40vh; 
     padding: 120px 24px 40px;
     text-align: center;
     display: flex;
@@ -448,16 +451,12 @@ section:last-child {
     position: relative;
 }
 
-.page-header .eyebrow {
-    order: 1;
-}
-
+.page-header .eyebrow { order: 1; }
 .page-header .glow-text {
     font-size: clamp(2rem, 4.5vw, 3rem);
     margin-bottom: 14px;
     order: 2;
 }
-
 .page-header .subtitle {
     color: var(--text-2);
     font-size: 1.05rem;
@@ -483,7 +482,6 @@ section:last-child {
     padding: 34px;
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
     width: 100%;
 }
 
@@ -625,34 +623,27 @@ section:last-child {
     font-size: 1.3rem;
 }
 
-.project-img.is-hidden {
-    display: none;
-}
+.project-img.is-hidden { display: none; }
 
 /* --------------------------------------------------------------------------
    10. Connect Page & Contact Form
    -------------------------------------------------------------------------- */
-
-/* Links Section */
-.connect-section {
-    width: 100%;
-    min-height: 60vh;
+.connect-grid {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 100px;
+    gap: 28px; /* Matches project-grid spacing exactly */
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-/* Links Container */
-.connect-panel {
-    max-width: 620px;
+.connect-panel,
+.form-container {
     width: 100%;
-    margin: 0 auto;
     background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
     border-radius: var(--radius-lg);
-    padding: 48px;
+    padding: 38px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Connect List Layout */
@@ -710,28 +701,6 @@ section:last-child {
     text-shadow: 0 0 10px var(--accent-glow);
 }
 
-/* Contact Form Section */
-.contact-section {
-    width: 100%;
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 80px;
-}
-
-/* Outer Form Container */
-.form-container {
-    max-width: 620px;
-    width: 100%;
-    margin: 0 auto;
-    background: linear-gradient(160deg, var(--bg-card-from), var(--bg-card-to));
-    border-radius: var(--radius-lg);
-    padding: 44px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-}
-
 /* Inputs, Selects & Textarea Base Styles */
 .form-control,
 .glow-input-display {
@@ -747,14 +716,12 @@ section:last-child {
     transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
-/* Textarea Specific Resizing */
 textarea.form-control {
     resize: vertical;
     min-height: 120px;
     max-height: 400px;
 }
 
-/* Custom Light-Grey Dropdown Arrow for Select */
 select.form-control {
     appearance: none;
     -webkit-appearance: none;
@@ -767,7 +734,6 @@ select.form-control {
     cursor: pointer;
 }
 
-/* Custom Dropdown Option Items Background/Text */
 select.form-control option {
     background-color: var(--bg-raised);
     color: var(--text-1);
@@ -798,7 +764,6 @@ select.form-control option {
     font-weight: 600;
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    cursor: pointer;
     transition: transform 0.35s var(--ease), 
                 border-color 0.35s var(--ease), 
                 box-shadow 0.35s var(--ease),
@@ -876,14 +841,6 @@ footer {
    12. Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
-    .split-section {
-        flex-direction: column;
-    }
-
-    .split-card {
-        width: 100%;
-    }
-
     .project-card {
         flex-direction: column;
         align-items: flex-start;
@@ -918,7 +875,7 @@ footer {
 
     .connect-panel,
     .form-container {
-        padding: 30px 20px;
+        padding: 28px 20px;
     }
 
     .connect-list li {
@@ -947,11 +904,11 @@ footer {
     }
 
     .intro-section {
-        margin-bottom: 160px;
+        margin-bottom: 120px;
     }
 
     .split-card {
-        padding: 52px 46px;
+        padding: 46px;
     }
 
     .project-card {
@@ -962,10 +919,6 @@ footer {
         max-width: 1120px;
         margin: 0 auto;
         gap: 28px;
-    }
-
-    .project-grid {
-        gap: 180px;
     }
 }
 
@@ -1011,14 +964,6 @@ footer {
         opacity: 0.7;
         transform: translate(-50%, -6px);
     }
-}
-
-html, body {
-    cursor: url('/portfolio/images/cursor/custom-j-cursor.png') 0 0, default;
-}
-
-a, button, .nav-cta, .btn-primary, select, input[type="submit"], .submit-btn {
-    cursor: url('/portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
 }
 
 /* Phone Action Modal */
@@ -1113,72 +1058,4 @@ a, button, .nav-cta, .btn-primary, select, input[type="submit"], .submit-btn {
 
 .modal-close-btn:hover {
     color: var(--text-1);
-}
-
-/* ==========================================
-   Connect Page Containers (Matches Creations)
-   ========================================== */
-
-/* Main Container Alignment */
-.connect-section,
-.contact-section {
-    width: 100%;
-    max-width: 900px; /* Adjust to match your creations card width */
-    margin: 0 auto 80px auto;
-    display: flex;
-    justify-content: center;
-}
-
-/* Panel & Form Box Styling (Identical to Creation Cards) */
-.connect-panel,
-.form-container {
-    width: 100%;
-    position: relative;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 32px;
-    backdrop-filter: blur(10px);
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover Effect matching Creations */
-.connect-panel:hover,
-.form-container:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-4px);
-}
-
-/* Interactive Cursor Glow (Driven by js-interactive-container) */
-.js-interactive-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-        600px circle at var(--mx, 50%) var(--my, 50%),
-        rgba(255, 255, 255, 0.08),
-        transparent 40%
-    );
-    pointer-events: none;
-    border-radius: inherit;
-    z-index: 1;
-}
-
-/* Keep inner content above the radial glow */
-.connect-panel *,
-.form-container * {
-    position: relative;
-    z-index: 2;
-}
-
-/* Desktop Spacing Adjustments */
-@media (min-width: 993px) {
-    .connect-section,
-    .contact-section {
-        margin-bottom: 120px;
-    }
 }
