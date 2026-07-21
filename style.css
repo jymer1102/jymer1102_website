@@ -623,7 +623,7 @@ section:last-child {
     transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 
-/* Cursor Glow Overlay for Connect Panel */
+/* Restored Cursor Glow Overlay without altering internal content layout */
 .connect-panel::before {
     content: '';
     position: absolute;
@@ -632,6 +632,7 @@ section:last-child {
     opacity: 0;
     transition: opacity 0.4s var(--ease);
     pointer-events: none;
+    z-index: 1;
 }
 
 .connect-panel:hover::before {
@@ -643,6 +644,50 @@ section:last-child {
     box-shadow: 0 16px 40px rgba(30, 86, 224, 0.12);
 }
 
+/* Ensures content list stays cleanly above the background glow layer */
+.connect-list {
+    position: relative;
+    z-index: 2;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.connect-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.connect-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.connect-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-3);
+    width: 90px;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.connect-value {
+    color: var(--text-1);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.25s var(--ease);
+}
+
+.connect-value:hover {
+    color: var(--accent-bright);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
 /* Form Container */
 .form-container {
     max-width: 620px;
