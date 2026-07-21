@@ -1,26 +1,26 @@
 /* ==========================================================================
- jymer1102 — Portfolio Stylesheet
- Table of Contents:
-   1.  Fonts & Design Tokens
-   2.  Global Reset & Base
-   3.  Utility / Shared Patterns (eyebrows, glow text, interactive glow utility)
-   4.  Navigation
-   5.  Hero (Home)
-   6.  Intro + Split Section (Home)
-   7.  Page Header (Creations / Connect)
-   8.  Project Cards & Gallery
-   9.  Project Icons & Logo Images
-   10. Connect Page & Contact Form
-   11. Footer
-   12. Responsive
-   13. Scroll Indicator, Cursors & Modals
- ========================================================================== */
+  jymer1102 — Portfolio Stylesheet
+  Table of Contents:
+    1.  Fonts & Design Tokens
+    2.  Global Reset & Base
+    3.  Utility / Shared Patterns (eyebrows, glow text, interactive glow utility)
+    4.  Navigation
+    5.  Hero (Home)
+    6.  Intro + Split Section (Home)
+    7.  Page Header (Creations / Connect)
+    8.  Project Cards & Gallery
+    9.  Project Icons & Logo Images
+    10. Connect Page & Contact Form
+    11. Footer
+    12. Responsive
+    13. Scroll Indicator, Cursors & Modals
+  ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* --------------------------------------------------------------------------
- 1. Fonts & Design Tokens
- -------------------------------------------------------------------------- */
+  1. Fonts & Design Tokens
+  -------------------------------------------------------------------------- */
 :root {
 /* Surfaces */
 --bg: #0a0a0c;
@@ -60,8 +60,8 @@
 }
 
 /* --------------------------------------------------------------------------
- 2. Global Reset & Base
- -------------------------------------------------------------------------- */
+  2. Global Reset & Base
+  -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -126,8 +126,8 @@ padding: 100px 24px 60px;
 }
 
 /* --------------------------------------------------------------------------
- 3. Utility / Shared Patterns
- -------------------------------------------------------------------------- */
+  3. Utility / Shared Patterns
+  -------------------------------------------------------------------------- */
 
 .eyebrow {
 display: inline-flex;
@@ -222,11 +222,11 @@ z-index: 2;
 }
 
 /* --- Shared "reveal on scroll" utility ---
- Cards/panels wrapped in .reveal-on-scroll start hidden and only fade/slide
- into view once the page has been scrolled past 10px. Scrolling back to the
- very top removes .is-visible again, hiding them and bringing the scroll
- indicator back. Individual cards inside can still carry their own
- data-aos attributes for staggered entrance as they cross the viewport. */
+  Cards/panels wrapped in .reveal-on-scroll start hidden and only fade/slide
+  into view once the page has been scrolled past 10px. Scrolling back to the
+  very top removes .is-visible again, hiding them and bringing the scroll
+  indicator back. Individual cards inside can still carry their own
+  data-aos attributes for staggered entrance as they cross the viewport. */
 .reveal-on-scroll {
 opacity: 0;
 transform: translateY(20px);
@@ -239,8 +239,8 @@ transform: translateY(0);
 }
 
 /* --------------------------------------------------------------------------
- 4. Navigation
- -------------------------------------------------------------------------- */
+  4. Navigation
+  -------------------------------------------------------------------------- */
 nav {
 display: flex;
 justify-content: space-between;
@@ -323,8 +323,8 @@ width: 100%;
 }
 
 /* --------------------------------------------------------------------------
- 5. Home Banner + Hero
- -------------------------------------------------------------------------- */
+  5. Home Banner + Hero
+  -------------------------------------------------------------------------- */
 .home-banner {
 position: relative;
 width: 100%;
@@ -388,8 +388,8 @@ color: var(--text-2);
 }
 
 /* --------------------------------------------------------------------------
- 6. Intro + Split Section (Home)
- -------------------------------------------------------------------------- */
+  6. Intro + Split Section (Home)
+  -------------------------------------------------------------------------- */
 section {
 margin-bottom: 140px;
 width: 100%;
@@ -451,8 +451,8 @@ font-size: 0.98rem;
 }
 
 /* --------------------------------------------------------------------------
- 7. Page Header (Creations / Connect)
- -------------------------------------------------------------------------- */
+  7. Page Header (Creations / Connect)
+  -------------------------------------------------------------------------- */
 .page-header {
 padding: 160px 24px 20px;
 text-align: center;
@@ -483,8 +483,8 @@ order: 3;
 }
 
 /* --------------------------------------------------------------------------
- 8. Project Cards & Gallery
- -------------------------------------------------------------------------- */
+  8. Project Cards & Gallery
+  -------------------------------------------------------------------------- */
 .project-grid {
 display: flex;
 flex-direction: column;
@@ -536,8 +536,8 @@ max-width: 62ch;
 }
 
 /* --------------------------------------------------------------------------
- 9. Project Tags & Links
- -------------------------------------------------------------------------- */
+  9. Project Tags & Links
+  -------------------------------------------------------------------------- */
 .project-tag {
 display: inline-flex;
 align-items: center;
@@ -603,8 +603,8 @@ cursor: default;
 }
 
 /* --------------------------------------------------------------------------
- 9b. Project Icons & Logo Images
- -------------------------------------------------------------------------- */
+  9b. Project Icons & Logo Images
+  -------------------------------------------------------------------------- */
 .project-icon {
 width: 72px;
 height: 72px;
@@ -651,8 +651,8 @@ display: none;
 }
 
 /* --------------------------------------------------------------------------
- 10. Connect Page & Contact Form
- -------------------------------------------------------------------------- */
+  10. Connect Page & Contact Form
+  -------------------------------------------------------------------------- */
 
 /* Links Section */
 .connect-section {
@@ -868,8 +868,8 @@ animation: caretBlink 1s infinite;
 50%, 100% { opacity: 0; }
 }
 /* --------------------------------------------------------------------------
- 11. Footer
- -------------------------------------------------------------------------- */
+  11. Footer
+  -------------------------------------------------------------------------- */
 footer {
 text-align: center;
 padding: 40px 24px 50px;
@@ -881,8 +881,8 @@ width: 100%;
 }
 
 /* --------------------------------------------------------------------------
- 12. Responsive
- -------------------------------------------------------------------------- */
+  12. Responsive
+  -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
 .split-section {
 flex-direction: column;
@@ -955,9 +955,9 @@ padding-top: 60px;
 padding-bottom: 160px;
 }
 
-section {
-section,
-.connect-section {
+    section {
+    section,
+    .connect-section {
 margin-bottom: 260px;
 }
 
@@ -985,8 +985,8 @@ gap: 300px;
 }
 
 /* --------------------------------------------------------------------------
- 13. Scroll Indicator, Cursors & Modals
- -------------------------------------------------------------------------- */
+  13. Scroll Indicator, Cursors & Modals
+  -------------------------------------------------------------------------- */
 #scroll-indicator {
 position: fixed;
 bottom: 30px;
@@ -1021,12 +1021,10 @@ transform: translate(-50%, -6px);
 }
 
 html, body {
-cursor: url('/jymer1102_portfolio/images/cursor/custom-j-cursor.png') 0 0, default;
 cursor: url('/portfolio/images/cursor/custom-j-cursor.png') 0 0, default;
 }
 
 a, button, .nav-cta, .btn-primary, select, input[type="submit"], .submit-btn {
-cursor: url('/jymer1102_portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
 cursor: url('/portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
 }
 
