@@ -55,23 +55,23 @@
         </section>
 
         <section class="split-section">
-            <div class="split-card js-interactive-container" data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
+            <div class="split-card js-interactive-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
                 <h3>The One And Only</h3>
                 <p>Jackson Weimer, otherwise known as jymer1102, or just "J", was born and raised in Springfield, Missouri. He is the first one in his family to do lots of the things he does to this day. Such as: triathlon, aviation, development, gaming, and owning a coffee business.</p>
             </div>
-            <div class="split-card js-interactive-container" data-aos="fade-left" data-aos-duration="800" data-aos-delay="150">
+            <div class="split-card js-interactive-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
                 <h3>Development</h3>
                 <p>J grew up adjusting and exploring new technology and software. He came to love the idea of learning how things work the way they do, and making them do that. He developed multiple apps. The reason? Because he wanted to learn, and he wanted to make something personal.</p>
             </div>
-             <div class="split-card js-interactive-container" data-aos="fade-right" data-aos-duration="800" data-aos-delay="150">
+             <div class="split-card js-interactive-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
                 <h3>Flight</h3>
                 <p>J grew up loving planes. When he turned 14, he went on his first discovery flight, and he fell in love with aviation. He has been flying ever since.</p>
             </div>
-            <div class="split-card js-interactive-container" data-aos="fade-left" data-aos-duration="800" data-aos-delay="150">
+            <div class="split-card js-interactive-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
                 <h3>Game/Stream</h3>
                 <p>J, of course, grew up like most boys. He loved video games. Eventually, he started thinking, "What if I could stream this decent gameplay?" and "How can I share this with the world and make content some people might like?" And that grew from there.</p>
             </div>
-            <div class="split-card js-interactive-container" data-aos="fade-right" data-aos-duration="800" data-aos-delay="150">
+            <div class="split-card js-interactive-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
                 <h3>Religion</h3>
                 <p>Growing up, J was surrounded by Christian parents, friends, and mentors. Eventually, in the summer of 2023, he chose to give his life to Christ. J tries to incorporate his love and passion for Christ into his videos, streams, and work, the best he can.</p>
             </div>
@@ -101,13 +101,8 @@
                 container.style.setProperty('--my', `${y}px`);
             };
 
-            // Desktop Mouse Hover & Move
             container.addEventListener('mousemove', (e) => updateGlowPosition(e.clientX, e.clientY));
-
-            // Instant position update on Click / Tap / Pointer Down
             container.addEventListener('pointerdown', (e) => updateGlowPosition(e.clientX, e.clientY));
-
-            // Mobile Finger Drag
             container.addEventListener('touchmove', (e) => {
                 const touch = e.touches[0];
                 if (touch) updateGlowPosition(touch.clientX, touch.clientY);
@@ -140,7 +135,6 @@
         });
     </script>
 
-   <script src="{{ '/favicon-animation.js' | relative_url }}"></script>
-    
+    <script src="{{ '/favicon-animation.js' | relative_url }}"></script>
 </body>
 </html>
