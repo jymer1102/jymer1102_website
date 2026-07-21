@@ -933,7 +933,8 @@ footer {
         padding-bottom: 160px;
     }
 
-    section {
+    section,
+    .connect-section {
         margin-bottom: 200px;
     }
 
@@ -959,7 +960,6 @@ footer {
         gap: 260px;
     }
 }
-
 /* --------------------------------------------------------------------------
    13. Scroll Indicator, Cursors & Modals
    -------------------------------------------------------------------------- */
