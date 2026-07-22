@@ -133,7 +133,8 @@ const DEFAULT_CSS = `
   box-sizing: border-box;
 }
 
-body {
+/* Base Custom Cursor */
+html, body {
   background-color: var(--bg-color);
   color: var(--text-main);
   font-family: var(--font-family);
@@ -144,6 +145,12 @@ body {
   align-items: center;
   padding: 2rem;
   text-align: center;
+  cursor: url('/portfolio/images/cursor/custom-j-cursor.png') 0 0, default;
+}
+
+/* Interactive Element Custom Pointer Cursor */
+a, button, select, input[type="submit"] {
+  cursor: url('/portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer !important;
 }
 
 /* Heading Styling */
@@ -170,7 +177,7 @@ h1::after {
   margin-left: 6px;
   box-shadow: 0 0 10px var(--accent-glow);
   animation: blink 1.1s step-end infinite;
-  -webkit-text-fill-color: initial; /* Prevents text gradient from hiding block */
+  -webkit-text-fill-color: initial;
 }
 
 @keyframes blink {
@@ -201,7 +208,6 @@ p {
   border: 1px solid var(--border-color);
   padding: 12px 24px;
   border-radius: var(--radius);
-  cursor: pointer;
   transition: all 0.3s cubic-bezier(0.22, 0.8, 0.28, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
