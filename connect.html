@@ -4,6 +4,26 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>
+(function () {
+try {
+var stored = localStorage.getItem('theme');
+var theme = stored;
+if (!theme) {
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+theme = 'dark';
+} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+theme = 'light';
+} else {
+theme = 'dark';
+}
+}
+document.documentElement.setAttribute('data-theme', theme);
+} catch (e) {
+document.documentElement.setAttribute('data-theme', 'dark');
+}
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>jymer1102 | Connect</title>
 <meta name="description" content="Reach out via socials or send a direct message to jymer1102.">
@@ -16,8 +36,8 @@
 
 <meta property="og:title" content="Connect | jymer1102">
 <meta property="og:description" content="Reach out via socials or send a direct message to jymer1102.">
-    <meta property="og:image" content="https://jymer1102.github.io/portfolio/images/social-card.png">
-    <meta property="og:image" content="https://jymer1102.github.io/portfolio/images/social-card.png">
+    <meta property="og:image" content="https://jymer1102.github.io/jymer1102_website/images/social-card.png">
+    <meta property="og:image" content="https://jymer1102.github.io/jymer1102_portfolio/images/social-card.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Connect | jymer1102">
@@ -31,7 +51,12 @@
 <body>
 
 <nav id="top">
+<div class="nav-left">
+<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
+<i class="fa-solid fa-moon"></i>
+</button>
 <a href="{{ '/' | relative_url }}#top" class="logo">jymer1102</a>
+</div>
 <div class="nav-links">
 <a href="{{ '/' | relative_url }}">Home</a>
 <a href="{{ '/creations/' | relative_url }}">Creations</a>
@@ -209,6 +234,8 @@ if (touch) updateGlowPosition(touch.clientX, touch.clientY);
 </script>
 
 <script src="{{ '/scroll-reveal.js' | relative_url }}"></script>
+
+<script src="{{ '/theme-toggle.js' | relative_url }}"></script>
 
 <script src="{{ '/favicon-animation.js' | relative_url }}"></script>
 
