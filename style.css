@@ -1224,6 +1224,11 @@ select.form-control, .project-card:not(.coming-soon) {
 cursor: url('/portfolio/images/cursor/custom-j-cursor-pointer.png') 0 0, pointer;
 }
 
+/* Custom cursor fix for disabled project links */
+.project-link.disabled,
+.coming-soon .project-link.disabled {
+  cursor: url('/portfolio/images/cursor/custom-j-cursor.png') 0 0, default !important;
+}
 /* Phone Action Modal */
 .phone-modal {
 position: fixed;
