@@ -14,7 +14,7 @@
     11. Footer
     12. Responsive
     13. Scroll Indicator, Cursors & Modals
-    14. Code playground
+    14. Code Playground
   ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -1045,6 +1045,7 @@ width: 100%;
 margin-left: 0;
 justify-content: flex-start;
 overflow-x: auto;
+padding-bottom: 8px;
 -webkit-overflow-scrolling: touch;
 scrollbar-width: none;
 }
