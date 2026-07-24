@@ -66,7 +66,7 @@ document.documentElement.setAttribute('data-theme', 'dark');
 <header class="page-header" data-aos="fade-up" data-aos-duration="900">
 <p class="eyebrow">portfolio / try code</p>
 <h1 class="glow-text">Try Code For Yourself<span class="cursor">_</span></h1>
-<p class="subtitle">Show off your skills or use AI on this blank HTML / CSS / JS sandbox — nothing you write here is saved unless you dowload the file, share what you created and tag me @jymer1102! The possibilities are endless. You have control. Enjoy!</p>
+<p class="subtitle">Show off your skills or use AI on this blank HTML / CSS / JS sandbox — nothing you write here is saved, share what you created and tag me @jymer1102! The possibilities are endless. You have control. Enjoy!</p>
 </header>
 
 <p id="scroll-indicator">Scroll down to explore ↓</p>
@@ -78,9 +78,9 @@ document.documentElement.setAttribute('data-theme', 'dark');
 <div class="playground-toolbar">
 <div class="playground-tabs"></div>
 <div class="playground-actions">
-<button id="run-btn" class="playground-btn primary" type="button">Run <i class="fa-solid fa-play"></i></button>
-<button id="download-btn" class="playground-btn" type="button">Download <i class="fa-solid fa-download"></i></button>
-<button id="reset-btn" class="playground-btn" type="button">Reset <i class="fa-solid fa-arrow-rotate-left"></i></button>
+<button id="run-btn" class="playground-btn primary" type="button">Run ▶</button>
+<button id="download-btn" class="playground-btn" type="button">Download ⇩</button>
+<button id="reset-btn" class="playground-btn" type="button">Reset</button>
 </div>
 </div>
 
@@ -101,13 +101,7 @@ document.documentElement.setAttribute('data-theme', 'dark');
 
 <div class="playground-preview-wrap">
 <div class="playground-preview-label">Preview</div>
-<iframe id="preview-frame" 
-        class="playground-preview playground-preview--large" 
-        title="Live code preview" 
-        sandbox="allow-scripts allow-modals allow-popups allow-same-origin allow-forms allow-downloads" 
-        allow="camera; microphone; display-capture; autoplay; clipboard-write" 
-        referrerpolicy="no-referrer">
-</iframe>
+<iframe id="preview-frame" class="playground-preview playground-preview--large" title="Live code preview" sandbox="allow-scripts allow-modals" referrerpolicy="no-referrer"></iframe>
 </div>
 
 </div>
@@ -170,6 +164,17 @@ const DEFAULT_CSS = `
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+/* Light theme overrides — applied when the site (and this preview) is
+   switched to light mode. Mirrors the main site's palette. */
+:root[data-theme="light"] {
+  --bg-color: #f4f5f8;
+  --card-bg: #ffffff;
+  --text-main: #15151a;
+  --text-muted: #46464f;
+  --accent-bright: #145dc7;
+  --border-color: rgba(10, 10, 12, 0.09);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -208,6 +213,13 @@ h1 {
   -webkit-text-fill-color: transparent;
   display: inline-flex;
   align-items: center;
+}
+
+:root[data-theme="light"] h1 {
+  background: linear-gradient(120deg, #0a0a0c 0%, #0a0a0c 45%, var(--accent-bright) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Blinking Terminal Caret */
@@ -285,8 +297,9 @@ jsBox.value = DEFAULT_JS;
 }
 
 function runCode() {
+const siteTheme = document.documentElement.getAttribute('data-theme') || 'dark';
 const doc = `<!DOCTYPE html>
-<html>
+<html data-theme="${siteTheme}">
 <head>
 <meta charset="UTF-8">
 <style>${cssBox.value}</style>
@@ -332,6 +345,13 @@ runBtn.addEventListener('click', runCode);
 resetBtn.addEventListener('click', () => {
 loadDefaults();
 runCode();
+});
+
+// If the person toggles light/dark mode on the site while this page is
+// open, refresh the preview immediately so it follows along.
+new MutationObserver(runCode).observe(document.documentElement, {
+attributes: true,
+attributeFilter: ['data-theme']
 });
 
 async function downloadZip() {
